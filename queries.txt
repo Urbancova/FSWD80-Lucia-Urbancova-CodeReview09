@@ -1,0 +1,19 @@
+1. SELECT * FROM customer WHERE city = 'Los Angeles';
+
+2. SELECT customer.first_name, customer.last_name, reservation.res_id, reservation.res_date
+	FROM customer
+	INNER JOIN reservation
+	ON customer.customer_id = reservation.fk_customer_id
+	ORDER BY customer.last_name;
+
+3. SELECT customer.first_name, customer.last_name, payment.payment_date, payment.pay_amount
+	FROM customer
+	INNER JOIN payment
+	ON customer.customer_id = payment.fk_res_id
+	ORDER BY customer.last_name;
+
+4. SELECT customer.first_name, customer.last_name, invoice.inv_num, invoice.inv_date
+	FROM customer
+	LEFT JOIN invoice
+	ON customer.customer_id = invoice.fk_payment_id
+	ORDER BY customer.last_name;
